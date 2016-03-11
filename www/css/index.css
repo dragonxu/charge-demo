@@ -1,0 +1,6 @@
+/* CSS Document */
+.today_data .col-md-2{padding-left:10px;padding-right:10px;}
+.today_data .ibox-content h1{height:51px;line-height: 51px;text-align: right;}
+.today_data .ibox-content h1 .num_text{overflow:hidden;text-overflow: ellipsis;}
+h1 small{font-size: 50%;}
+.today_data .ibox-content{padding: 15px 10px 20px 10px;}

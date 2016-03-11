@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>充电运营管理系统 -  资金明细</title>
+    <script type="text/javascript" src="js/loginValid.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <!-- Gritter -->
+    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <!--layerDate -->
+    <link href="js/plugins/laydate/need/laydate.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+        .my_label{float: left;white-space: nowrap;line-height: 30px;padding:0px 5px;width: 90px;text-align: right;}
+        .my_input{float: left;width: 220px;}
+        .my_select{float: left;width: 100px;}
+        .my_select select{height: 30px;padding: 0px 12px;width: 120px;}
+        .my_input input{height: 30px;}
+        .form-group .radio-inline{padding-top: 7px;}
+        .m-b-15{margin-bottom: 15px;}
+        .m-r-15{margin-right: 25px;}
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        document.getElementsByTagName('body')[0].className = getCookie('sx_smoothlymenu');
+    </script>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+            	<!--左侧菜单开始-->
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+
+                        <div class="dropdown profile-element text-center"> <span>
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                             </span>
+                            <a href="javascript:void(0)" >
+                                <span class="clear"> 
+                                    <span class="block m-t-xs font-bold" id="user_name"></span> 
+                                    <span class="text-muted text-xs block" id="user_identity"></span> 
+                                </span>
+                            </a>
+                        </div>
+                        <div class="logo-element"><img alt="image" class="img-circle" src="img/profile_small.jpg" /></div>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-home fa-lg"></i> <span class="nav-label">总览</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop fa-lg"></i> <span class="nav-label">监控</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        	<li>
+                            	<a href="chargeClound.html">充电网络</a>
+                            </li>
+                            <li>
+                                <a href="controlRecord.html">控制记录</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-warning fa-lg"></i> <span class="nav-label">告警</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        	<li>
+                            	<a href="realAlarm.html">实时告警</a>
+                            </li>
+                            <li>
+                            	<a href="hisAlarm.html">历史告警查询</a>
+                            </li>
+                            <!-- <li>
+                            	<a href="#">历史告警分析</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-krw fa-lg"></i> <span class="nav-label">计费</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        	<li>
+                            	<a href="chargeRecord.html">充电记录</a>
+                            </li>
+                            <li class="active">
+                            	<a href="feeDetail.html">资金明细</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-group fa-lg"></i> <span class="nav-label">管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        	<li>
+                            	<a href="userManage.html">用户管理</a>
+                            </li>
+                            <li>
+                            	<a href="chargeManage.html">电桩管理</a>
+                            </li>
+                            <li>
+                            	<a href="rateManage.html">费率管理</a>
+                            </li>
+                            <li>
+                                <a href="userEvaluation.html">评价管理</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#">卡片管理</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart fa-lg"></i> <span class="nav-label">统计</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="analysis.html">充电分析</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#">充电桩性能</a>
+                            </li> -->
+                        </ul>
+                    </li>
+				</ul>
+                <!--左侧菜单结束-->
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+        	<!--顶部菜单部分-->
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <div class="header-text"><h2>充电运营管理系统</h2></div>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <!--danger故障-->
+                        <li class="dropdown">
+                            <a class="count-info" href="realAlarm.html">
+                                <i class="fa fa-bell"></i> <span class="label label-danger" id="sys_alarm"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <span class="navbar-minimalize minimalize-styl-2 btn btn-primary">
+                                <i class="fa fa-bars"></i>
+                            </span>
+                        </li>
+                        <li>
+                            <a id="Logout" href="javascript:void(0)" onclick="gs.func.logout()">
+                                <i class="fa fa-sign-out"></i> 退出
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <!--主体部分-->
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>表单 <small>筛选条件</small></h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="form-horizontal m-t clearfix form-content">
+                                    <div class="col-sm-12 m-b-15">
+                                        <div class="m-r-15 pull-left">
+                                            <label class="my_label" for="user_name"><span style="letter-spacing: 0.5em">用户</span>名：</label>
+                                            <div class="my_input">
+                                                <input type="text" class="form-control" id="user_name" placeholder="用户名/手机号">
+                                            </div>
+                                        </div>
+                                        <div class="m-r-15 pull-left">
+                                            <label class="my_label">账户类型：</label>
+                                            <div class="my_select">
+                                                <select class="form-control" id="account_type">
+                                                    <option value='-1'>全部</option>
+                                                    <option value='1'>微信支付</option>
+                                                    <option value='2'>支付宝支付</option>
+                                                    <option value='3'>余额支付</option>
+                                                </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="m-r-15 pull-left">
+                                            <label class="my_label">收支类型：</label>
+                                            <div class="my_select">
+                                                <select class="form-control" id="pay_type">
+                                                    <option value='-1'>全部</option>
+                                                    <option value='1'>收入</option>
+                                                    <option value='2'>支出</option>
+                                                </select>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-horizontal m-b-15 clearfix form-content">
+                                    <div class="col-sm-12">
+                                        <div class="m-r-15 pull-left">
+                                            <label class="my_label">开始时间：</label>
+                                            <div class="my_input">
+                                                <input type="text" class="laydate-icon form-control" id="start_time">
+                                            </div>
+                                        </div>
+                                        <div class="m-r-15 pull-left">
+                                            <label class="my_label">结束时间：</label>
+                                            <div class="my_input">
+                                                <input type="text" class="laydate-icon form-control" id="end_time">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="pull-left" style="margin-left:30px;">
+                                            <button type="button" class="btn btn-success btn-sm" id="submit1">查询</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            	<div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>表格数据 <small>资金明细</small></h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <table id="table_feeDetail" class="table table-striped table-bordered table-hover">
+                                    <thead class="text-center">
+                                        <th>记录ID</th>
+                                        <th>收支类型</th>
+                                        <th>支付单号</th>   
+                                        <th>交易时间</th>
+                                        <th>交易金额</th>
+                                        <th>用户名</th>
+                                        <th>账户类型</th>
+                                        <th>账户余额</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd">
+                                            <td valign="top" colspan="8" style="line-height:40px;font-size:16px;" class="dataTables_empty text-center">数据加载中.....</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--主体部分结束-->
+            <div data-partial='footer.html'></div>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js?v=3.4.0"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script type="text/javascript" src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/plugins/layer/layer.js"></script><!--layer-->
+    <!-- Data Tables -->
+    <script type="text/javascript" src="js/plugins/jeditable/jquery.jeditable.js" ></script>
+    <script type="text/javascript" src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <!--layer dateTime -->
+    <script type="text/javascript" src="js/plugins/laydate/laydate.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script type="text/javascript" src="js/common.js?v=3.1"></script>
+    <script type="text/javascript" src="js/hplus.js"></script>
+    <script type="text/javascript" src="js/plugins/pace/pace.min.js"></script>
+    <script type="text/javascript" src="js/feeDetail.js"></script>
+  
+</body>
+
+</html>

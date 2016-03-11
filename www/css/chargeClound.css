@@ -1,0 +1,144 @@
+.btn-city .btn{margin-right: 20px;}
+.div_station_main {
+    margin-top: 5px;
+}
+
+.div_station_list {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.div_station_content {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.div_station_content_map {
+    margin-top: 15px;
+    cursor: pointer;
+    max-width: 350px;
+}
+
+.div_station_content_title {
+    line-height: 18px;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.div_station_content_title_type {
+    width: 18px;
+    float: left;
+    height: 18px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 18px;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.typezhucolor {
+    background-color: #7ca1d1;
+}
+
+.typegongcolor {
+    background-color: #d3745a;
+}
+
+.typezhuancolor {
+    background-color: #4ab097;
+}
+
+.div_station_content_title_font_main {
+    float: left;
+    width: 75%;
+}
+
+.div_station_content_title_font_main_map {
+    float: left;
+    width: 80%;
+}
+
+.div_station_content_title_font_main_map_address_marker {
+    float: left;
+    color: #cf6565;
+}
+
+.div_station_content_title_font_main_map_address_tags {
+    color: #9e9e9e;
+    margin-right: 10px;
+}
+
+.div_station_content_title_font_main_map_address {
+    margin-left: 22px;
+}
+
+.div_station_content_title_font {
+    font-size: 16px;
+    color: #282828;
+}
+
+.div_station_content_title_kongxian {
+    float: right;
+    background-color: #21af1b;
+    height: 18px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 9px;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.div_station_content_address {
+    margin-left: 23px;
+    font-size: 14px;
+    color: #737373;
+    margin-bottom: 10px;
+}
+
+.div_station_content_address_map {
+    display: inline-block;
+    font-size: 14px;
+    color: #737373;
+    margin-bottom: 10px;
+}
+
+.div_station_content_type {
+    margin-left: 23px;
+    font-size: 14px;
+    color: #737373;
+    margin-bottom: 10px;
+}
+
+.div_station_content_type_map {
+    font-size: 14px;
+    color: #737373;
+    margin-bottom: 10px;
+}
+
+.div_station_content_type_man {
+    color: #337ab7;
+    margin-right: 8px;
+}
+
+.div_station_content_type_kuai {
+    color: #c82e10;
+    margin-right: 8px;
+}
+.div_station_content_type_free{
+    color:#21af1b;
+}
+.city_content_bottom button{margin:0px 5px 5px;}
+table.table tr td .btn{padding:2px;}
+table.table > tbody > tr > td{padding:4px 8px;}
+#pile_detail_table_content{min-height: 334px;}
+#pile_detail_content .row{margin-left: -5px;margin-right: -5px;}
+#pile_real_data .row{line-height: 24px;}
+#pile_real_data .row .pile_data_label{width: 140px;text-align: right;}
+
+#wrapper ,#page-wrapper{height: 100%;}
+#page-wrapper>.wrapper{height:calc(100% - 69px);}
+#wrapper .wrapper>.row,#baiduMap{height: 100%;}

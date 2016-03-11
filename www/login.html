@@ -1,0 +1,89 @@
+<html><!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>充电运营管理系统 - 后台登录</title>
+    <link href="css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css\plugins\bootstrapvalidator\bootstrapValidator.min.css">
+    <link href="font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=2.2.0" rel="stylesheet">
+    <style type="text/css">
+        .loginscreen.middle-box {
+            width: 700px;
+            max-width: 100%;
+            z-index: 100;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+        .has-feedback small.help-block {
+            margin-bottom: -10px;
+        }
+        body.has-feedback label~.form-control-feedback {
+            top: 0px !important;
+        }
+        body{background: url(img/bj.jpg) no-repeat center -350px;background-size: cover;}
+        
+    </style>
+</head>
+
+<body class="gray-bg">
+    <div class="loginColumns animated fadeInDown">
+        <div class="row text-center" style="position: relative;margin-bottom: -20px;top: -60px;">
+            <img src="img/logo.png">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="font-bold">充电运营管理系统</h2>
+                <p style="text-indent:2em;line-height:2em;">
+                   基于移动互联网、云服务和大数据，为充电运营商<br>提供一体化解决方案：智能充电桩、定制业务模式和计<br>费策略、多渠道支付、充电网络运营管理、数据统计和<br>
+                   大数据分析、广告和消息推送。
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="ibox-content">
+                    <form class="m-t" role="form" action="#" id="loginForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="用户名" name="username" id="user_name" >
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="密码" name="pwd" id="pwd" >
+                        </div>
+                        <p>
+                            <label class="checkbox-inline"><input id="remember" type="checkbox"/>记住用户名</label>
+                        </p>
+                        <button type="submit" class="btn btn-primary block full-width m-b"> 登 录 </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-6">
+                版权所有
+            </div>
+            <div class="col-md-6 text-right">
+               <small>© 2015-2016</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/plugins/bootstrapvalidator/bootstrapValidator.min.js"></script>
+    <script src="js/plugins/layer/layer.js"></script><!--layer-->
+    <script src="js/plugins/crypto-js/crypto-js.js"></script><!-- crypto-js -->
+    <!-- commonJs -->
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <!-- this page js -->
+    <script type="text/javascript" src="js/login.js"></script>
+</body>
+
+</html>

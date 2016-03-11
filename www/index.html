@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>充电运营管理系统 - 主页</title>
+    <script type="text/javascript" src="js/loginValid.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Morris -->
+    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <!-- Gritter -->
+    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+        document.getElementsByTagName('body')[0].className = getCookie('sx_smoothlymenu');
+    </script>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+            	<!--左侧菜单开始-->
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+
+                        <div class="dropdown profile-element text-center"> <span>
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                             </span>
+                            <a href="javascript:void(0)" >
+                                <span class="clear"> 
+                                    <span class="block m-t-xs font-bold" id="user_name"></span> 
+                                    <span class="text-muted text-xs block" id="user_identity"></span> 
+                                </span>
+                            </a>
+                        </div>
+                        <div class="logo-element"><img alt="image" class="img-circle" src="img/profile_small.jpg" /></div>
+                    </li>
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-home fa-lg"></i> <span class="nav-label">总览</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop fa-lg"></i> <span class="nav-label">监控</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        	<li>
+                            	<a href="chargeClound.html">充电网络</a>
+                            </li>
+                            <li>
+                            	<a href="controlRecord.html">控制记录</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-warning fa-lg"></i> <span class="nav-label">告警</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        	<li>
+                                <a href="realAlarm.html">实时告警</a>
+                            </li>
+                            <li>
+                                <a href="hisAlarm.html">历史告警查询</a>
+                            </li>
+                            <!-- <li>
+                            	<a href="#">历史告警分析</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-krw fa-lg"></i> <span class="nav-label">计费</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        	<li>
+                            	<a href="chargeRecord.html">充电记录</a>
+                            </li>
+                            <li>
+                            	<a href="feeDetail.html">资金明细</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-group fa-lg"></i> <span class="nav-label">管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        	<li>
+                            	<a href="userManage.html">用户管理</a>
+                            </li>
+                            <li>
+                            	<a href="chargeManage.html">电桩管理</a>
+                            </li>
+                            <li>
+                            	<a href="rateManage.html">费率管理</a>
+                            </li>
+                            <li>
+                            	<a href="userEvaluation.html">评价管理</a>
+                            </li>
+                            <!-- <li>
+                            	<a href="#">卡片管理</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart fa-lg"></i> <span class="nav-label">统计</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="analysis.html">充电分析</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#">充电桩性能</a>
+                            </li> -->
+                        </ul>
+                    </li>
+				</ul>
+                <!---左侧菜单结束-->
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+        	<!--顶部菜单部分-->
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <div class="header-text"><h2>充电运营管理系统</h2></div>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <!--danger故障-->
+                        <li class="dropdown">
+                            <a class="count-info" href="realAlarm.html">
+                            	<i class="fa fa-bell"></i> <span class="label label-danger" id="sys_alarm"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <span class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </span>
+                        </li>
+                        <li>
+                            <a id="Logout" href="javascript:void(0)" onclick="gs.func.logout()">
+                                <i class="fa fa-sign-out"></i> 退出
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <!--主体部分-->
+            <div class="wrapper wrapper-content">
+            	<!--row1-->
+                <div class="row today_data">
+                    <div class="col-md-2">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="label label-info pull-right">今日</span>
+                                <h5>充电次数</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins" id="charge_times">
+                                    <div class="num_text pull-left">000,000</div>
+                                </h1>
+                            </div>
+                        </div>
+                    </div><!--充电次数-->
+                    <div class="col-md-2">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="label label-info pull-right">今日</span>
+                                <h5>充电时长</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins" id="charge_duration">
+                                    <div class="num_text pull-left">000,000</div>
+                                </h1>
+                            </div>
+                        </div>
+                    </div><!---充电时长-->
+                    <div class="col-md-2">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="label label-info pull-right">今日</span>
+                                <h5>充电电量</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins" id="charge_kwh">
+                                    <div class="num_text pull-left">000,000</div>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="label label-info pull-right">今日</span>
+                                <h5>收入</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins" id="charge_fee">
+                                    <div class="num_text pull-left">000,000</div>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>今日概况</h5>
+                                <div class="ibox-tools">
+                                    <span class="label label-primary" id='ref_time'></span>
+                                </div>
+                            </div>
+                            <div class="ibox-content no-padding">
+                                <div class="flot-chart" style="height: 85px;">
+                                    <div class="col-md-4"><div class="flot-chart-content" id="pie-echart1" style="height:85px;"></div></div>
+                                    <div class="col-md-8">
+                                    	<div class="gk-contain" style="padding:15px 10px;">
+                                        	<div class="row m-b">
+                                                <div class="stat-percent font-bold text-warning"><span id="today_used_num"></span></div>
+                                                <span>今日已使用充电桩个数</span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="stat-percent font-bold text-success"><span  id="total_unused_num"></span> </div>
+                                                <span>今日未使用充电桩个数</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+            	</div><!---row1-->
+                <!--row2-->
+                <div class="row">
+                	<!--echarts-->
+                    <div class="col-lg-8">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title" style="height:2px !important;min-height:0px;padding:0px;"></div>
+                            <div class="ibox-content">
+                                <div class="m-t-sm">
+                                    <div class="row">
+                                    	<div>
+                                            <div id="lineChart" height="278" width="100%" style="width: 100%; height: 295px;"></div>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--echarts-->
+                    <!--趋势-->
+                    <div class="col-lg-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <!-- <span class="label label-warning pull-right">数据有更新</span> -->
+                                <h5>整体趋势</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <ul class="stat-list">
+                                    <li>
+                                        <h2 class="no-margins" id="total_num_dz">000,000</h2>
+                                        <small>总充电桩(<span id="total_num_dz_dec">个</span>)</small>
+                                        <div class="progress progress-mini">
+                                            <div style="width: 60%;" class="progress-bar"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2 class="no-margins" id="total_kwh">000,000</h2>
+                                        <small>总充电电量(<span id="total_kwh_dec">度</span>)</small>
+                                        <div class="progress progress-mini">
+                                            <div style="width: 22%;" class="progress-bar"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2 class="no-margins" id="total_fee">00,000</h2>
+                                        <small>总收入(<span id="total_fee_dec">元</span>)</small>
+                                        <div class="progress progress-mini">
+                                            <div style="width: 72%;" class="progress-bar"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--趋势-->
+                </div><!---row2-->
+                <!--row3-->
+                <div class="row">
+                	<!--<div id="top1" style="height:400px;"></div>-->
+                    <div id="chargePile" style="height:400px;"></div>
+                </div>
+            </div>
+            <div data-partial='footer.html'></div>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/plugins/layer/layer.js"></script><!--layer-->
+    <script src="js/plugins/pace/pace.min.js"></script>
+    <!-- echart-->
+    <script type="text/javascript" src="js/plugins/echarts/echarts.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="js/common.js?v=3.1"></script>
+    <script src="js/hplus.js"></script>
+    <script src="js/index.js"></script>
+  
+</body>
+
+</html>
